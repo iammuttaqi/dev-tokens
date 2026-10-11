@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevTokens — Accessible Design Token Studio</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="brand">
+          <svg class="brand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span class="brand-name">DevTokens</span>
+          <span class="badge">v0.1.0</span>
+        </div>
+        <div class="header-actions">
+          <button id="btn-export-css" class="btn btn-secondary">Export CSS</button>
+          <button id="btn-export-ts" class="btn btn-primary">Export TypeScript</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="panel-section">
+        <h1 class="panel-title">Design Token Studio</h1>
+        <p class="panel-desc">
+          Generate, test, and export accessible color palettes and typographic scales with real-time WCAG 2.2 contrast validation.
+        </p>
+
+        <div class="grid-layout">
+          <div class="card">
+            <div class="card-header">
+              <h2>Color Tokens</h2>
+              <span id="contrast-badge" class="tag tag-pass">WCAG AAA</span>
+            </div>
+            <div class="color-picker-group">
+              <label for="input-primary-color">Primary Brand Color</label>
+              <div class="color-row">
+                <input type="color" id="input-primary-color" value="#0f172a" />
+                <input type="text" id="text-primary-color" value="#0f172a" class="input-text" />
+              </div>
+            </div>
+
+            <div class="color-picker-group">
+              <label for="input-accent-color">Accent Color</label>
+              <div class="color-row">
+                <input type="color" id="input-accent-color" value="#0284c7" />
+                <input type="text" id="text-accent-color" value="#0284c7" class="input-text" />
+              </div>
+            </div>
+
+            <div id="swatch-list" class="swatch-grid"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2>Accessibility & Contrast</h2>
+            </div>
+            <div id="contrast-display" class="contrast-box">
+              <div class="contrast-metric">
+                <span class="metric-label">Contrast Ratio (vs White)</span>
+                <span id="ratio-white" class="metric-value">16.1 : 1</span>
+              </div>
+              <div class="contrast-metric">
+                <span class="metric-label">Contrast Ratio (vs Dark 900)</span>
+                <span id="ratio-dark" class="metric-value">1.2 : 1</span>
+              </div>
+              <div class="contrast-preview" id="contrast-preview-text">
+                Accessible Sample Typography (Body text 16px)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card output-card">
+          <div class="card-header">
+            <h2>Exported Tokens Output</h2>
+            <button id="btn-copy-output" class="btn btn-outline">Copy Output</button>
+          </div>
+          <pre id="code-output" class="code-block"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <span>Project Foundry Open Product • MIT License</span>
+        <span>Local-first • Zero tracking</span>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
